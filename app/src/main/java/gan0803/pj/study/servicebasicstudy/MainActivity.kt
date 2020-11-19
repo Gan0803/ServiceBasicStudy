@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
     private val connection = object : ServiceConnection {
         override fun onServiceDisconnected(p0: ComponentName?) {
             unbindMyService()
-            isServiceBound = false
         }
 
         override fun onServiceConnected(p0: ComponentName?, binder: IBinder?) {
@@ -77,6 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun stopMyService() {
+        unbindMyService()
         val intent = Intent(this, MyService::class.java)
         stopService(intent)
     }
