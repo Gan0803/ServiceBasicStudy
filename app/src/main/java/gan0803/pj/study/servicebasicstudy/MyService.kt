@@ -80,7 +80,6 @@ class MyService : Service() {
         Log.d(TAG, "onUnbind")
         Toast.makeText(applicationContext, "onUnbind", Toast.LENGTH_SHORT).show()
 
-        stopForeground(false)
         return allowRebind
     }
 
